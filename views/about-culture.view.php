@@ -1,1 +1,0 @@
-<h1>Our Culture</h1>

@@ -12,6 +12,7 @@ return [
 	],
 
 	'app' => [
-		'name' => 'gpn'
+		'base_url' => 'gpn',
+		'name' => 'Jaggie'
 	]
 ];
