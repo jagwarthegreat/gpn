@@ -1,1 +1,0 @@
-<h1>My last inserted id is : <?= $test ?></h1>

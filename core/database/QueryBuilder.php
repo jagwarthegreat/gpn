@@ -23,22 +23,26 @@ class QueryBuilder
 
 		$sql = "INSERT INTO " . $table_name . "(`" . implode('`,`', $fields) . "`) VALUES ('" . implode("','", $form_data) . "')";
 
-		$statement = $this->pdo->prepare($sql);
-		$statement->execute();
+		try {
+			$statement = $this->pdo->prepare($sql);
+			$statement->execute();
 
-		$lastID = $this->pdo->lastInsertId();
-		if ($last_id == 'Y') {
-			if ($statement) {
-				return $lastID;
+			$lastID = $this->pdo->lastInsertId();
+			if ($last_id == 'Y') {
+				if ($statement) {
+					return $lastID;
+				} else {
+					return 0;
+				}
 			} else {
-				return 0;
+				if ($statement) {
+					return 1;
+				} else {
+					return 0;
+				}
 			}
-		} else {
-			if ($statement) {
-				return 1;
-			} else {
-				return 0;
-			}
+		} catch (Exception $e) {
+			die('something went wrong!');
 		}
 	}
 }
