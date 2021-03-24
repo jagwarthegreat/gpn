@@ -12,6 +12,6 @@ return [
 	],
 
 	'app' => [
-		'name' => 'test_pdo'
+		'name' => 'gpn'
 	]
 ];
