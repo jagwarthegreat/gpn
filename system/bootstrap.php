@@ -3,7 +3,7 @@
 use App\Core\App;
 
 
-App::bind('config', require 'app/config/config.php');
+App::bind('config', require 'config/config.php');
 
 App::bind(
     'base_url',

@@ -11,5 +11,5 @@ require __DIR__ . '/vendor/autoload.php';
 
 require 'system/bootstrap.php';
 
-Router::load('app/config/routes.php')
+Router::load('config/routes.php')
 	->direct(Request::uri(), Request::method());
