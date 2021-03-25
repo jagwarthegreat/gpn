@@ -13,6 +13,6 @@ return [
 
 	'app' => [
 		'base_url' => 'gpn',
-		'name' => 'Jaggie'
+		'name' => 'GPN'
 	]
 ];

@@ -1,4 +1,4 @@
-<?php require 'layouts/head.php';
+<?php require __DIR__ . '/../layouts/head.php';
 
 use App\Core\App; ?>
 
@@ -17,4 +17,4 @@ use App\Core\App; ?>
 
 </form>
 
-<?php require 'layouts/footer.php'; ?>
+<?php require __DIR__ . '/../layouts/footer.php'; ?>
