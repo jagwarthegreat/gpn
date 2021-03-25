@@ -24,7 +24,7 @@ use App\Core\App;
 <body>
     <div class="container" style="margin-top: 5%;">
         <div class="row justify-content-md-center">
-            <div class="col-5">
+            <div class="col-md-5">
                 <div class="text-center mb-3">
                     <svg height="70pt" preserveAspectRatio="xMidYMid meet" viewBox="0 0 318 305" width="70pt" xmlns="http://www.w3.org/2000/svg">
                         <g transform="matrix(.1 0 0 -.1 0 305)" style="fill:#0a9e6e">
@@ -45,7 +45,9 @@ use App\Core\App;
                 </div>
                 <div class="card mt-4" style="background-color: #fff; border: 0px; border-radius: 8px; box-shadow: 0 4px 5px 0 rgba(0,0,0,0.2);">
                     <div class="card-body">
-                        <small id="emailHelp" class="form-text text-muted mb-1">We'll never share your email with anyone else.</small>
+
+                        <!-- <small id="emailHelp" class="form-text text-muted mb-1">We'll never share your email with anyone else.</small> -->
+
                         <form method="POST" action="<?= route('login') ?>">
                             <div class="form-group">
                                 <label for="username">Username</label>
@@ -55,7 +57,7 @@ use App\Core\App;
                                 <label for="password">Password</label>
                                 <input type="password" class="form-control" name="password" autocomplete="off" required>
                             </div>
-                            <button type="submit" class="btn btn-secondary btn-sm text-rigth">Login</button>
+                            <button type="submit" class="btn btn-secondary btn-sm text-rigth">LOGIN</button>
                         </form>
                     </div>
                 </div>
