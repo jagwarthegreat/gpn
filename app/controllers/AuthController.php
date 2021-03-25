@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Core\App;
 
-class LoginController
+class AuthController
 {
     public function index()
     {
@@ -24,5 +24,11 @@ class LoginController
         }
 
         redirect('home');
+    }
+
+    public function logout()
+    {
+        session_destroy();
+        redirect('login');
     }
 }

@@ -34,7 +34,7 @@ function redirect($path)
  */
 function route($route, $data = "")
 {
-    if (!empty($data)) {
+    if (!empty($data) || $data == 0) {
         $data = "/{$data}";
     }
 

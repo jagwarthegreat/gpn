@@ -1,8 +1,9 @@
 <?php
 
 // auth
-$router->get('login', 'LoginController@index');
-$router->post('login', 'LoginController@authenticate');
+$router->get('login', 'AuthController@index');
+$router->post('login', 'AuthController@authenticate');
+$router->get('logout', 'AuthController@logout');
 
 $router->get('', 'WelcomeController@home');
 $router->get('home', 'WelcomeController@home');

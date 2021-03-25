@@ -6,11 +6,15 @@ use App\Core\App;
 
 class UsersController
 {
+    protected $pageTitle;
+
     public function index()
     {
+        $pageTitle = "Users";
+
         $roles = App::get('database')->selectLoop('tbl_role');
 
-        return view('users/index', compact('roles', 'id'));
+        return view('users/index', compact('roles', 'id', 'pageTitle'));
     }
 
     public function store()
@@ -25,9 +29,11 @@ class UsersController
 
     public function detail($id)
     {
+        $pageTitle = "User Detail";
+
         $id = $id[0];
         $role_detail = App::get('database')->select("*", "tbl_role", "role_id = '$id'");
 
-        return view('users/detail', compact('role_detail'));
+        return view('users/detail', compact('role_detail', 'pageTitle'));
     }
 }

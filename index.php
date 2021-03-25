@@ -20,4 +20,17 @@ require 'system/bootstrap.php';
  * 
  */
 Router::load('config/routes.php')
-	->direct(Request::uri(), Request::method());
+	->direct(
+		// request uri
+		Request::uri(),
+
+		// the method use of the uri
+		Request::method(),
+
+		// skip checking this route for authentication
+		[
+			'login',
+			'register',
+			'welcome'
+		]
+	);
