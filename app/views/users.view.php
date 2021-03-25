@@ -5,7 +5,7 @@ use App\Core\App; ?>
 <h1>Users Page</h1>
 
 <?php foreach ($roles as $role) : ?>
-    <a href="<?= App::get('base_url') ?>/user/1">
+    <a href="<?= route('users/detail', $role->role_id) ?>">
         <li><?php echo $role->role_name; ?></li>
     </a>
 <?php endforeach; ?>

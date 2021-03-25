@@ -4,6 +4,11 @@ namespace App\Core;
 
 use Exception;
 
+/**
+ * This is a DI container
+ * 
+ */
+
 class App
 {
     protected static $registry = [];

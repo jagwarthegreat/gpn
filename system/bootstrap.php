@@ -2,6 +2,7 @@
 
 use App\Core\App;
 
+require 'helpers.php';
 
 App::bind('config', require 'config/config.php');
 
@@ -13,22 +14,3 @@ App::bind(
 App::bind('database', new QueryBuilder(
     Connection::make(App::get('config')['database'])
 ));
-
-
-
-/**
- * Global functions
- * 
- */
-function view($name, $data = [])
-{
-    extract($data);
-
-    return require "app/views/{$name}.view.php";
-}
-
-function redirect($path)
-{
-    $path = App::get('base_url') . "/" . $path;
-    header("Location: {$path}");
-}

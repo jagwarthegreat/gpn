@@ -10,7 +10,7 @@ class UsersController
     {
         $roles = App::get('database')->selectLoop('tbl_role');
 
-        return view('users', compact('roles'));
+        return view('users', compact('roles', 'id'));
     }
 
     public function store()
@@ -21,5 +21,13 @@ class UsersController
 
         App::get('database')->insert('tbl_role', $data);
         return redirect("users");
+    }
+
+    public function detail($id)
+    {
+        $id = $id[0];
+        $role_detail = App::get('database')->select("*", "tbl_role", "role_id = '$id'");
+
+        return view('roles/detail', compact('role_detail'));
     }
 }
