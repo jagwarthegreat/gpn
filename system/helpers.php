@@ -26,6 +26,12 @@ function redirect($path)
     header("Location: {$path}");
 }
 
+/**
+ * set a new route.
+ *
+ * @param  string $route
+ * @param mixed $data
+ */
 function route($route, $data = "")
 {
     if (!empty($data)) {
