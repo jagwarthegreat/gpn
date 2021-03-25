@@ -1,15 +1,36 @@
 <?php
 
+namespace App\Core\Database;
+
+use PDO;
+use Exception;
+
 class QueryBuilder
 {
-
+	/**
+	 * The PDO instance.
+	 *
+	 * @var PDO
+	 */
 	protected $pdo;
 
+	/**
+	 * Create a new QueryBuilder instance.
+	 *
+	 * @param PDO $pdo
+	 */
 	public function __construct($pdo)
 	{
 		$this->pdo = $pdo;
 	}
 
+	/**
+	 * Select a record from a database table.
+	 *
+	 * @param string $columns
+	 * @param string $table
+	 * @param string $params
+	 */
 	public function select($columns, $table, $params = '')
 	{
 		$inject = ($params == '') ? "" : "WHERE $params";
@@ -18,6 +39,11 @@ class QueryBuilder
 		return $statement->fetch(PDO::FETCH_ASSOC);
 	}
 
+	/**
+	 * Select all records from a database table.
+	 *
+	 * @param string $table
+	 */
 	public function selectLoop($table)
 	{
 		$statement = $this->pdo->prepare("select * from {$table}");
@@ -25,6 +51,13 @@ class QueryBuilder
 		return $statement->fetchAll(PDO::FETCH_CLASS);
 	}
 
+	/**
+	 * insert record to a database table.
+	 *
+	 * @param string $table_name
+	 * @param array $form_data
+	 * @param string $last_id
+	 */
 	public function insert($table_name, $form_data, $last_id = 'N')
 	{
 		$fields = array_keys($form_data);
@@ -54,6 +87,13 @@ class QueryBuilder
 		}
 	}
 
+	/**
+	 * update a record from a database table.
+	 *
+	 * @param string $table_name
+	 * @param array $form_data
+	 * @param string $where_clause
+	 */
 	public function update($table_name, $form_data, $where_clause = '')
 	{
 		$whereSQL = '';
@@ -86,6 +126,12 @@ class QueryBuilder
 		}
 	}
 
+	/**
+	 * delete a record from a database table.
+	 *
+	 * @param string $table_name
+	 * @param string $where_clause
+	 */
 	public function delete($table_name, $where_clause = '')
 	{
 		$whereSQL = '';
@@ -113,6 +159,12 @@ class QueryBuilder
 		}
 	}
 
+	/**
+	 * query a record from a database.
+	 *
+	 * @param string $query
+	 * @param string $fetch (optional)
+	 */
 	public function query($query, $fetch = "N")
 	{
 		$statement = $this->pdo->prepare($query);

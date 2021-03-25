@@ -1,4 +1,4 @@
-<?php require('layouts/head.php'); ?>
+<?php require 'layouts/head.php'; ?>
 
 <h1>Home</h1>
 

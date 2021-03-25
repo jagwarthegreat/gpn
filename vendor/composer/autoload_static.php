@@ -8,16 +8,17 @@ class ComposerStaticInit8b1ae44066fac28b4dbca9a06aa4869a
 {
     public static $classMap = array (
         'App\\Controllers\\PagesController' => __DIR__ . '/../..' . '/app/controllers/PagesController.php',
+        'App\\Controllers\\SettingsController' => __DIR__ . '/../..' . '/app/controllers/SettingsController.php',
         'App\\Controllers\\UsersController' => __DIR__ . '/../..' . '/app/controllers/UsersController.php',
         'App\\Core\\App' => __DIR__ . '/../..' . '/system/App.php',
+        'App\\Core\\Database\\Connection' => __DIR__ . '/../..' . '/system/database/Connection.php',
+        'App\\Core\\Database\\QueryBuilder' => __DIR__ . '/../..' . '/system/database/QueryBuilder.php',
         'App\\Core\\Request' => __DIR__ . '/../..' . '/system/Request.php',
         'App\\Core\\Router' => __DIR__ . '/../..' . '/system/Router.php',
         'ComposerAutoloaderInit8b1ae44066fac28b4dbca9a06aa4869a' => __DIR__ . '/..' . '/composer/autoload_real.php',
         'Composer\\Autoload\\ClassLoader' => __DIR__ . '/..' . '/composer/ClassLoader.php',
         'Composer\\Autoload\\ComposerStaticInit8b1ae44066fac28b4dbca9a06aa4869a' => __DIR__ . '/..' . '/composer/autoload_static.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'Connection' => __DIR__ . '/../..' . '/system/database/Connection.php',
-        'QueryBuilder' => __DIR__ . '/../..' . '/system/database/QueryBuilder.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

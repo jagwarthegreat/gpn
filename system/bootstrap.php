@@ -1,6 +1,8 @@
 <?php
 
 use App\Core\App;
+use App\Core\Database\QueryBuilder;
+use App\Core\Database\Connection;
 
 require 'helpers.php';
 

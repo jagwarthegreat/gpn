@@ -9,7 +9,15 @@ use App\Core\Request;
  */
 require __DIR__ . '/vendor/autoload.php';
 
+/**
+ * Load the DI containers and helpers
+ * 
+ */
 require 'system/bootstrap.php';
 
+/**
+ * direct the routes
+ * 
+ */
 Router::load('config/routes.php')
 	->direct(Request::uri(), Request::method());

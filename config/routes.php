@@ -8,3 +8,5 @@ $router->get('contact', 'PagesController@contact');
 $router->get("users", 'UsersController@index');
 $router->get("users/detail/{id}", 'UsersController@detail');
 $router->post('users', 'UsersController@store');
+
+$router->get("settings", 'SettingsController@index');
