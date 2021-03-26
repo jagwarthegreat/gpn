@@ -22,9 +22,10 @@ function view($name, $data = [])
  *
  * @param  string $path
  */
-function redirect($path)
+function redirect($path, $message = "")
 {
     $path = App::get('base_url') . "/" . $path;
+    $_SESSION["ALERT_MSG"] = $message;
     header("Location: {$path}");
 }
 

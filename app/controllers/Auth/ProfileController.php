@@ -19,37 +19,20 @@ class ProfileController
         return view('auth/profile', compact('user_data', 'pageTitle'));
     }
 
-    public function store()
-    {
-        $data = [
-            'role_name' => $_POST['name']
-        ];
-
-        App::get('database')->insert('tbl_role', $data);
-        redirect("users");
-    }
-
-    public function detail($id)
-    {
-        $pageTitle = "Profile Detail";
-
-        $id = $id[0];
-        $role_detail = App::get('database')->select("*", "users", "id = '$id'");
-
-        return view('auth/profile-detail', compact('role_detail', 'pageTitle'));
-    }
-
     public function update()
     {
         $email = sanitizeString($_POST['email']);
         $name = sanitizeString($_POST['name']);
-        Request::validate();
+
+        $request = Request::validate('profile', [
+            'email' => 'required'
+        ]);
 
         $user_id = Auth::user('id');
 
         $update_data = [
-            'email' => "$email",
-            'fullname' => "$name"
+            'email' => "$request[email]",
+            'fullname' => "$request[name]"
         ];
 
         App::get('database')->update('users', $update_data, "id = '$user_id'");

@@ -13,7 +13,7 @@ use App\Core\App; ?>
             <div class="card-body">
 
                 <small id="emailHelp" class="form-text mb-1" style="color: red;">
-                    <?= $_SESSION["VALIDATION_ERROR"] ?>
+                    <?= $_SESSION["VALIDATION_ERROR"]['profile'] ?>
                 </small>
 
                 <form method="POST" action="<?= route('profile') ?>">

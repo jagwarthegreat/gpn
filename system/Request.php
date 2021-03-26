@@ -30,19 +30,25 @@ class Request
 	 * Validates the POST method inputs
 	 * 
 	 */
-	public static function validate($datas = [])
+	public static function validate($uri, $datas = [])
 	{
 		$errorList = "";
-		foreach ($_POST as $inputName => $inputValue) {
-			if (empty($inputValue)) {
-				$errorList .= "&bull; {$inputName} is required but has no value.<br>";
+		foreach ($datas as $key => $data) {
+			if (empty($_POST[$key])) {
+				$errorList .= "&bull; {$key} is required but has no value.<br>";
 			}
 		}
 
 		if (!empty($errorList)) {
-			$_SESSION["VALIDATION_ERROR"] = $errorList;
-			redirect('login');
+			$_SESSION["VALIDATION_ERROR"][$uri] = $errorList;
+			redirect($uri);
 			exit();
 		}
+
+		foreach ($_POST as $key => $value) {
+			$post_data[$key] = sanitizeString($value);
+		}
+
+		return $post_data;
 	}
 }

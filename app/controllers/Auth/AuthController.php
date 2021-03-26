@@ -22,11 +22,13 @@ class AuthController
 
     public function authenticate()
     {
-        $username = sanitizeString($_POST['username']);
-        $password = sanitizeString($_POST['password']);
-        Request::validate();
+        $request = Request::validate('login', [
+            'username' => 'required',
+            'password' => 'required'
+        ]);
 
-        $userDdata = App::get('database')->select("*", "users", "username = '$username' AND password = md5('$password')");
+        $userDdata = App::get('database')->select("*", "users", "username = '$request[username]' AND password = md5('$request[password]')");
+
         Auth::authenticate($userDdata);
     }
 
