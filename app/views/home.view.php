@@ -25,12 +25,9 @@ require 'layouts/head.php'; ?>
         <h2 class="pl-1" style="color: #0a9e6e;">SPRNVA</h2>
     </div>
     <h3 class="mt-3" style="font-size: 30px;font-weight: 400;">Welcome to your Sprnva application!</h3>
-    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+    <p class="lead">SPRNVA will provide you experience and expand your vision for a better understanding of the basics. Using this template will provide enough ideas to step forward from the beginning. Featuring Model-view-controller software design pattern, debugging, secure and organized routing, built-in authentication functions and more.</p>
     <hr class="my-4">
-    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-    <p class="lead">
-        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-    </p>
+    <p>SPRNVA is a PHP template that brightens your horizon in future engagement for massive frameworks.</p>
 </div>
 
 <?php require 'layouts/footer.php'; ?>

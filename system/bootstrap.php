@@ -1,5 +1,7 @@
 <?php
 
+error_reporting(~E_NOTICE);
+
 use App\Core\App;
 use App\Core\Database\QueryBuilder;
 use App\Core\Database\Connection;

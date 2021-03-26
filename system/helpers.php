@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 use App\Core\App;
 
 /**
@@ -39,4 +41,18 @@ function route($route, $data = "")
     }
 
     return App::get('base_url') . "/{$route}" . $data;
+}
+
+/**
+ * sanitize strings
+ * 
+ * @param string $data
+ */
+function sanitizeString($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+
+    return $data;
 }

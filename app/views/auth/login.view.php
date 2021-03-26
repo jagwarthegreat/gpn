@@ -9,7 +9,7 @@ use App\Core\App;
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-        <?= App::get('config')['app']['name'] ?>
+        <?= App::get('config')['app']['name'] . " | " . ucfirst($pageTitle); ?>
     </title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -22,7 +22,7 @@ use App\Core\App;
 </head>
 
 <body>
-    <div class="container" style="margin-top: 5%;">
+    <div class="container" style="margin-top: 3%;">
         <div class="row justify-content-md-center">
             <div class="col-md-5">
                 <div class="text-center mb-3">
@@ -46,19 +46,35 @@ use App\Core\App;
                 <div class="card mt-4" style="background-color: #fff; border: 0px; border-radius: 8px; box-shadow: 0 4px 5px 0 rgba(0,0,0,0.2);">
                     <div class="card-body">
 
-                        <!-- <small id="emailHelp" class="form-text text-muted mb-1">We'll never share your email with anyone else.</small> -->
+                        <small id="emailHelp" class="form-text mb-1" style="color: red;">
+                            <?= $_SESSION["VALIDATION_ERROR"] ?>
+                        </small>
 
                         <form method="POST" action="<?= route('login') ?>">
                             <div class="form-group">
                                 <label for="username">Username</label>
-                                <input type="text" class="form-control" name="username" autocomplete="off" required>
+                                <input type="text" class="form-control" name="username" autocomplete="off" autofocus>
                             </div>
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input type="password" class="form-control" name="password" autocomplete="off" required>
+                                <input type="password" class="form-control" name="password" autocomplete="off">
                             </div>
-                            <button type="submit" class="btn btn-secondary btn-sm text-rigth">LOGIN</button>
+                            <div class="d-flex justify-content-end"><button type="submit" class="btn btn-secondary btn-sm text-rigth">LOGIN</button></div>
                         </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-md-center">
+            <div class="col-md-5">
+                <div class="card mt-4" style="background-color: #fff; border: 0px; border-radius: 8px; box-shadow: 0 4px 5px 0 rgba(0,0,0,0.2);">
+                    <div class="card-body d-flex justify-content-center align-items-center">
+
+                        <small id="emailHelp" class="form-text text-muted mb-1">We'll never share your email with anyone else.</small>
+
+                        <a href="<?= route('register'); ?>" class="ml-2" style="font-size: 14px;">Register</a>
+
                     </div>
                 </div>
             </div>

@@ -2,7 +2,7 @@
 
 return [
 	'database' => [
-		'name' => 'pms',
+		'name' => 'sprnva',
 		'username' => 'root',
 		'password' => '',
 		'connection' => '127.0.0.1',

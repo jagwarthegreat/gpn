@@ -1,6 +1,7 @@
 <?php
 
 use App\Core\App;
+use App\Core\Auth;
 ?>
 <html lang="en">
 
@@ -8,9 +9,9 @@ use App\Core\App;
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel='icon' href='../../../../public/favicon.ico' type='image/ico' />
+	<link rel='icon' href='../../../public/favicon.ico' type='image/ico' />
 	<title>
-		<?= App::get('config')['app']['name'] ?>
+		<?= App::get('config')['app']['name'] . " | " . ucfirst($pageTitle); ?>
 	</title>
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -53,18 +54,15 @@ use App\Core\App;
 					<li class="nav-item">
 						<a class="nav-link" href="<?= route('home') ?>">Home</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="<?= route('users') ?>">Users</a>
-					</li>
 				</ul>
 
 				<ul class="navbar-nav flex-row ml-md-auto">
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							Jagwarthegreat
+							<?= Auth::user('fullname') ?>
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="#">Profile</a>
+							<a class="dropdown-item" href="<?= route('profile') ?>">Profile</a>
 							<div class="dropdown-divider"></div>
 							<a class="dropdown-item" href="<?= route('logout') ?>">Logout</a>
 						</div>

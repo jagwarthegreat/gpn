@@ -4,9 +4,9 @@ use App\Core\App; ?>
 
 <h1>Users Page</h1>
 
-<?php foreach ($roles as $role) : ?>
-    <a href="<?= route('users/detail', $role->role_id) ?>">
-        <li><?php echo $role->role_name; ?></li>
+<?php foreach ($users as $user) : ?>
+    <a href="<?= route('users/detail', $user->id) ?>">
+        <li><?php echo $user->fullname; ?></li>
     </a>
 <?php endforeach; ?>
 

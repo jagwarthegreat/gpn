@@ -25,4 +25,24 @@ class Request
 	{
 		return $_SERVER['REQUEST_METHOD'];
 	}
+
+	/**
+	 * Validates the POST method inputs
+	 * 
+	 */
+	public static function validate($datas = [])
+	{
+		$errorList = "";
+		foreach ($_POST as $inputName => $inputValue) {
+			if (empty($inputValue)) {
+				$errorList .= "&bull; {$inputName} is required but has no value.<br>";
+			}
+		}
+
+		if (!empty($errorList)) {
+			$_SESSION["VALIDATION_ERROR"] = $errorList;
+			redirect('login');
+			exit();
+		}
+	}
 }
